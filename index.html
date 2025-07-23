@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Available Shows</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Available Shows</h2>
+    <ul class="list-group">
+        {% for show in shows %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ show.name }} - {{ show.date }} at {{ show.time }}
+            <a href="{{ url_for('book', show_id=show.id) }}" class="btn btn-primary">Book</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
